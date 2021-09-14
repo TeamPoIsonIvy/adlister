@@ -1,5 +1,6 @@
 package com.codeup.adlister.dao;
 
+import com.codeup.adlister.Config;
 import com.codeup.adlister.models.Ad;
 import com.codeup.adlister.util.Config;
 import com.mysql.cj.jdbc.Driver;
@@ -54,6 +55,24 @@ public class MySQLAdsDao implements Ads {
             return rs.getLong(1);
         } catch (SQLException e) {
             throw new RuntimeException("Error creating a new ad.", e);
+        }
+    }
+
+    @Override
+    public List<Ad> getUserAds(long id) throws SQLException {
+        String query = "SELECT * FROM ads WHERE user_id = ?";
+        DriverManager.registerDriver(new Driver());
+        try {
+            connection = DriverManager.getConnection(
+                    config.getUrl(),
+                    config.getUser(),
+                    config.getPassword()
+
+            );
+
+            return null;
+        }catch (SQLException e){
+            throw new RuntimeException("Error cant get the users ads");
         }
     }
 
