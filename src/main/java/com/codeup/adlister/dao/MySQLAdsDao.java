@@ -57,6 +57,7 @@ public class MySQLAdsDao implements Ads {
         }
     }
 
+<<<<<<< HEAD
 
 
     @Override
@@ -69,6 +70,18 @@ public class MySQLAdsDao implements Ads {
             return createAdsFromResults(rs);
         } catch (SQLException e) {
             throw new RuntimeException("Error retrieving all ads.", e);
+=======
+    @Override
+    public List<Ad> getUserAds(long id)  {
+        try {
+            String query = "SELECT * FROM ads WHERE user_id =?";
+           PreparedStatement  stmt = connection.prepareStatement(query);
+            stmt.setLong(1, id);
+            ResultSet rs = stmt.executeQuery();
+return createAdsFromResults(rs);
+        }catch (SQLException e){
+            throw new RuntimeException("Errorrrrrr cant get the users ads");
+>>>>>>> origin
         }
     }
 
