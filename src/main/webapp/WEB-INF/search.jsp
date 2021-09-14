@@ -25,8 +25,8 @@
 
 <c:choose>
 
-<c:when test="${cart.isEmpty()}">
-    <h2>No items in your cart (yet).</h2>
+<c:when test="${Ads.isEmpty()}">
+    <h2>No Ads to view.</h2>
 </c:when>
 
 <c:otherwise>
@@ -38,7 +38,7 @@
     </c:forEach>
 </c:otherwise>
 
-    </c:choose>
+</c:choose>
 
 </body>
 </html>
