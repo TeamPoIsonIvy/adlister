@@ -13,23 +13,16 @@ import java.io.IOException;
 public class SearchServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        if (request.getSession().getAttribute("ads") == null) {
+
+        String searchTerm = request.getParameter("search");
+        if (DaoFactory.getAdsDao().getBySearchTerm(searchTerm) == null) {
             response.sendRedirect("/ads/create");
             return;
         }
+
+        request.setAttribute("ads", DaoFactory.getAdsDao().getBySearchTerm(searchTerm));
         request.getRequestDispatcher("/WEB-INF/search.jsp")
                 .forward(request, response);
     }
 
-    @Override
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        User user = (User) request.getSession().getAttribute("user");
-        Ad ad = new Ad(
-                user.getId(),
-                request.getParameter("title"),
-                request.getParameter("description")
-        );
-        DaoFactory.getAdsDao().insert(ad);
-        response.sendRedirect("/ads");
-    }
 }
