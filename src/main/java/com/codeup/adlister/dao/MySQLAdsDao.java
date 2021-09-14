@@ -1,5 +1,6 @@
 package com.codeup.adlister.dao;
 
+import com.codeup.adlister.Config;
 import com.codeup.adlister.models.Ad;
 import com.mysql.cj.jdbc.Driver;
 
@@ -52,6 +53,19 @@ public class MySQLAdsDao implements Ads {
             return rs.getLong(1);
         } catch (SQLException e) {
             throw new RuntimeException("Error creating a new ad.", e);
+        }
+    }
+
+    @Override
+    public List<Ad> getUserAds(long id)  {
+        try {
+            String query = "SELECT * FROM ads WHERE user_id =?";
+           PreparedStatement  stmt = connection.prepareStatement(query);
+            stmt.setLong(1, id);
+            ResultSet rs = stmt.executeQuery();
+return createAdsFromResults(rs);
+        }catch (SQLException e){
+            throw new RuntimeException("Errorrrrrr cant get the users ads");
         }
     }
 
