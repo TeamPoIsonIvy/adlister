@@ -11,6 +11,9 @@ public interface Ads {
     // insert a new ad and return the new ad's id
     Long insert(Ad ad);
 
+
+    List<Ad>getBySearchTerm(String searchTerm);
+
     List<Ad> getUserAds(long id) throws SQLException;
 
 

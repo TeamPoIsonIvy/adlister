@@ -1,7 +1,7 @@
 package com.codeup.adlister.dao;
 
-import com.codeup.adlister.Config;
 import com.codeup.adlister.models.Ad;
+import com.codeup.adlister.util.Config;
 import com.mysql.cj.jdbc.Driver;
 
 import java.io.FileInputStream;
@@ -26,6 +26,7 @@ public class MySQLAdsDao implements Ads {
             throw new RuntimeException("Error connecting to the database!", e);
         }
     }
+
 
     @Override
     public List<Ad> all() {
@@ -56,6 +57,20 @@ public class MySQLAdsDao implements Ads {
         }
     }
 
+
+
+    @Override
+    public List<Ad> getBySearchTerm(String searchTerm) {
+        PreparedStatement stmt = null;
+        try {
+            stmt = connection.prepareStatement("SELECT * FROM ads where title like ?");
+            stmt.setString(1, "%" + searchTerm + "%");
+            ResultSet rs = stmt.executeQuery();
+            return createAdsFromResults(rs);
+        } catch (SQLException e) {
+            throw new RuntimeException("Error retrieving all ads.", e);
+        }
+    }
     @Override
     public List<Ad> getUserAds(long id)  {
         try {
@@ -68,6 +83,7 @@ return createAdsFromResults(rs);
             throw new RuntimeException("Errorrrrrr cant get the users ads");
         }
     }
+
 
     private Ad extractAd(ResultSet rs) throws SQLException {
         return new Ad(
