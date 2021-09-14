@@ -21,11 +21,19 @@ CREATE TABLE ads (
         ON DELETE CASCADE
 );
 
-CREATE TABLE mainCategoryforAds (
-                         id INT UNSIGNED AUTO_INCREMENT,
-                         category VARCHAR(100) NOT NULL,
-                         PRIMARY KEY(id),
-                         UNIQUE (category)
+CREATE TABLE Categories (
+                            id INT UNSIGNED NOT NULL AUTO_INCREMENT,
+
+                            title VARCHAR(240) NOT NULL,
+                            PRIMARY KEY (id)
+
+
+);
+CREATE TABLE ads_categories (
+                             ads_id INTEGER UNSIGNED NOT NULL,
+                             categories_id INTEGER UNSIGNED NOT NULL,
+                             FOREIGN KEY (ads_id) REFERENCES ads(id),
+                             FOREIGN KEY (categories_id) REFERENCES Categories(id)
 );
 
 

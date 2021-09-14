@@ -56,6 +56,24 @@ public class MySQLAdsDao implements Ads {
         }
     }
 
+    @Override
+    public List<Ad> getUserAds(long id) throws SQLException {
+        String query = "SELECT * FROM ads WHERE user_id = ?";
+        DriverManager.registerDriver(new Driver());
+        try {
+            connection = DriverManager.getConnection(
+                    config.getUrl(),
+                    config.getUser(),
+                    config.getPassword()
+
+            );
+
+            return null;
+        }catch (SQLException e){
+            throw new RuntimeException("Error cant get the users ads");
+        }
+    }
+
     private Ad extractAd(ResultSet rs) throws SQLException {
         return new Ad(
             rs.getLong("id"),
