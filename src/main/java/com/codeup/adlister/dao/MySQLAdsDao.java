@@ -11,6 +11,7 @@ import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
+
 public class MySQLAdsDao implements Ads {
     private Connection connection = null;
 
@@ -57,12 +58,7 @@ public class MySQLAdsDao implements Ads {
         }
     }
 
-    @Override
-    public Ad getAd(Long id) {
-        Long id = 1L;
 
-        return new Ad();
-    }
 //     @Override
 //    public Ad getAd(Long id) {
 //        Long id = 1L;
