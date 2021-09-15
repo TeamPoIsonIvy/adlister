@@ -23,8 +23,7 @@
 <div class="container">
     <h1>One Ad Only</h1>
 
-    <jsp:useBean id="Long_id" scope="page" type="java.util.List"/>
-    <c:forEach var="ad" items="${Long_id}">
+    <c:forEach var="ad" items="${Long_ad}">
         <div class="col-lg-10">
             <h2>${ad.title}</h2>
             <p>${ad.description}</p>
