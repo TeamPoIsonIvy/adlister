@@ -12,16 +12,17 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 
-@WebServlet(name = "AdShowServlet", urlPatterns = "/ads/show" )
+@WebServlet(name = "controllers.AdShowServlet", urlPatterns = "/show" )
 
 public class AdShowServlet  extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse response) throws ServletException, IOException{
         Long id = Long.parseLong(req.getParameter("id"));
-
-        Ad ad = DaoFactory.getAdsDao().getAd(id);
-
-        req.getRequestDispatcher("/WEB-INF/ads/index.jsp");
+        Ad getAd = DaoFactory.getAdsDao().getAd(id);
+        req.getRequestDispatcher("/WEB-INF/ads/show.jsp");
     }
 
 }
+
+///        request.setAttribute("ads", DaoFactory.getAdsDao());
+

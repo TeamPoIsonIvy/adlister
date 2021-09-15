@@ -14,6 +14,8 @@ import java.util.List;
 
 public class MySQLAdsDao implements Ads {
     private Connection connection = null;
+    private long id;
+    private Object Ad;
 
     public MySQLAdsDao(Config config) {
         try {
@@ -60,15 +62,12 @@ public class MySQLAdsDao implements Ads {
 
     @Override
     public Ad getAd(Long id) {
-        return null;
+        return (com.codeup.adlister.models.Ad) Ad;
     }
 
 
-//     @Override
-//    public Ad getAd(Long id) {
-//        Long id = 1L;
-//        String query =
-//    }
+
+
 
 
     @Override
