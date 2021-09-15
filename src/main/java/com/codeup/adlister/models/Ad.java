@@ -21,10 +21,6 @@ public class Ad {
         this.description = description;
     }
 
-    public Ad(Object config) {
-
-        this.config = config;
-    }
 
 
     public long getId() {

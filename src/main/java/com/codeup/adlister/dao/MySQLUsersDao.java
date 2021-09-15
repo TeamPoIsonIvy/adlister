@@ -53,10 +53,7 @@ public class MySQLUsersDao implements Users {
         }
     }
 
-    @Override
-    public Ad getAd(Long id) {
-        return null;
-    }
+
 
 
     private User extractUser(ResultSet rs) throws SQLException {
