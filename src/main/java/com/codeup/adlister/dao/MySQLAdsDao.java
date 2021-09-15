@@ -59,8 +59,15 @@ public class MySQLAdsDao implements Ads {
 
     @Override
     public Ad getAd(Long id) {
+        Long id = 1L;
+
         return new Ad();
     }
+//     @Override
+//    public Ad getAd(Long id) {
+//        Long id = 1L;
+//        String query =
+//    }
 
 
     @Override
