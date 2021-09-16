@@ -18,6 +18,15 @@ public interface Ads {
 
     List<Ad> getUserAds(long id) throws SQLException;
 
+
+    void updateAds(Ad ad);
+
+    void deleteAds(long adId);
+
     Ad findOneAd(long id) throws SQLException;
+
     int updateUserName(User user);
+
+
+
 }
