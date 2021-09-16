@@ -1,7 +1,9 @@
 package com.codeup.adlister.dao;
 
+import com.codeup.adlister.Config;
 import com.codeup.adlister.models.Ad;
-import com.codeup.adlister.util.Config;
+
+import com.codeup.adlister.models.User;
 import com.mysql.cj.jdbc.Driver;
 
 import java.io.FileInputStream;
@@ -101,4 +103,24 @@ return createAdsFromResults(rs);
         }
         return ads;
     }
+
+    public Ad findOneAd(long id)  {
+        try {
+            String query = "SELECT * FROM ads WHERE id =?";
+            PreparedStatement  stmt = connection.prepareStatement(query);
+            stmt.setLong(1, id);
+            ResultSet rs = stmt.executeQuery();
+            if (rs.next()) {
+                return extractAd(rs);
+            }
+        }catch (SQLException e) {
+            throw new RuntimeException("Errorrrrrr cant get the users ad");
+        }
+        return null;
+    }
+
+
+
+
+
 }

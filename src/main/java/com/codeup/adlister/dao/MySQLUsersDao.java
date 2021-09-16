@@ -1,7 +1,8 @@
 package com.codeup.adlister.dao;
 
+import com.codeup.adlister.Config;
 import com.codeup.adlister.models.User;
-import com.codeup.adlister.util.Config;
+
 import com.mysql.cj.jdbc.Driver;
 
 import java.sql.*;
@@ -62,6 +63,16 @@ public class MySQLUsersDao implements Users {
             rs.getString("email"),
             rs.getString("password")
         );
+    }
+    public User findByID(long id) {
+        String query = "SELECT * FROM users WHERE id = ? LIMIT 1";
+        try {
+            PreparedStatement stmt = connection.prepareStatement(query);
+            stmt.setLong(1, id);
+            return extractUser(stmt.executeQuery());
+        } catch (SQLException e) {
+            throw new RuntimeException("Error finding a user by id", e);
+        }
     }
 
 }

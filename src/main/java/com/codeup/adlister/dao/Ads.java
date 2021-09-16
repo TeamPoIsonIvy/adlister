@@ -12,9 +12,10 @@ public interface Ads {
     Long insert(Ad ad);
 
 
+
     List<Ad>getBySearchTerm(String searchTerm);
 
     List<Ad> getUserAds(long id) throws SQLException;
 
-
+    Ad findOneAd(long id) throws SQLException;
 }
