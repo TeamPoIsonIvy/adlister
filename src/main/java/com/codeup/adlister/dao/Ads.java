@@ -16,5 +16,7 @@ public interface Ads {
 
     List<Ad> getUserAds(long id) throws SQLException;
 
+    void updateAds(Ad ad);
 
+    void deleteAds(Ad ad);
 }
