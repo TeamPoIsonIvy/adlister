@@ -12,11 +12,16 @@ public interface Ads {
     Long insert(Ad ad);
 
 
+
     List<Ad>getBySearchTerm(String searchTerm);
 
     List<Ad> getUserAds(long id) throws SQLException;
 
+
     void updateAds(Ad ad);
 
-    void deleteAds(Ad ad);
+    void deleteAds(long adId);
+
+    Ad findOneAd(long id) throws SQLException;
+
 }

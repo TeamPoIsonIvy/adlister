@@ -14,10 +14,11 @@
 
     <c:forEach var="ad" items="${ads}">
         <div class="col-md-6">
-            <a href="/update?adId=${ad.id}">update</a>
-            <a href="/delete?adId=${ad.id}">delete</a>
             <h2>${ad.title}</h2>
             <p>${ad.description}</p>
+
+<%--            --%>
+            <a href="${pageContext.request.contextPath}/AdShowPage?id=${ad.id}"> View Add</a>
         </div>
     </c:forEach>
 </div>
