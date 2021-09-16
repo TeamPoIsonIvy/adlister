@@ -6,9 +6,6 @@ import com.codeup.adlister.models.Ad;
 import com.codeup.adlister.models.User;
 import com.mysql.cj.jdbc.Driver;
 
-import java.io.FileInputStream;
-import java.io.IOException;
-import java.io.InputStream;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -120,7 +117,19 @@ return createAdsFromResults(rs);
     }
 
 
-
+public int updateUserName(User user){
+    String query = "UPDATE users SET email = ?, password = ? WHERE id = ?";
+        try{
+            PreparedStatement stmt = connection.prepareStatement(query);
+            stmt.setString(1,user.getEmail());
+            stmt.setString(2, user.getPassword());
+            stmt.setLong(3, user.getId());
+            return stmt.executeUpdate(query) ;
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    return 0;
+}
 
 
 }
