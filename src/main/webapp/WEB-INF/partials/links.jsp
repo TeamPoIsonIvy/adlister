@@ -1,4 +1,11 @@
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%--
+  Created by IntelliJ IDEA.
+  User: kennethvincent
+  Date: 9/16/21
+  Time: 2:13 PM
+  To change this template use File | Settings | File Templates.
+--%>
+
 
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
@@ -11,6 +18,12 @@
 <body>
 <jsp:include page="/WEB-INF/partials/navbar.jsp"/>
 
+<div class="container">
+    <h1>Welcome, ${sessionScope.user.username}!</h1>
+</div>
+<div>
+    <h1>Links For Days</h1>
+
     <div class="container">
         <h1>Welcome, ${sessionScope.user.username}!</h1>
         <c:forEach var="ad" items="${ads}">
@@ -21,13 +34,9 @@
         </c:forEach>
     </div>
 
-    <div>
-        <h1>Your recent Posts</h1>
-        <br>
-        <a href="/links"> Your Awesome Link</a>
-    </div>
+    <a href="https://www.callofduty.com/home"></a>
+
 
 </div>
 </body>
-
 </html>
