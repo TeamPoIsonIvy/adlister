@@ -4,7 +4,7 @@ package com.codeup.adlister.dao;
 import com.codeup.adlister.models.Ad;
 import com.codeup.adlister.util.Config;
 
-public class DaoFactory<show> {
+public class DaoFactory {
     private static Ads adsDao;
     private static Users usersDao;
     private static Ad adDao;
@@ -25,10 +25,5 @@ public class DaoFactory<show> {
         return usersDao;
     }
 
-    public static Ad getAd() {
-        if (adDao == null) {
-            adDao = new Ad(config);
-        }
-        return adDao;
-    }
+
 }

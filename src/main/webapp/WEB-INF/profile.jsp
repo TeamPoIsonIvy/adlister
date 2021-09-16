@@ -1,6 +1,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+
 <html>
 <head>
     <jsp:include page="/WEB-INF/partials/head.jsp">
@@ -21,10 +22,22 @@
         </c:forEach>
     </div>
 
+<div class="container">
+    <h1>Welcome, ${sessionScope.user.username}!</h1>
+    <c:forEach var="ad" items="${ads}">
+        <div class="col-md-6">
+            <a href="/update?adId=${ad.id}">update</a>
+            <a href="/delete?adId=${ad.id}">delete</a>
+            <h2>${ad.title}</h2>
+            <p>${ad.description}</p>
+        </div>
+    </c:forEach>
+</div>
+<div>
+    <h1>Your recent Posts</h1>
+
     <div>
-        <h1>Your recent Posts</h1>
-        <br>
-        <a href="/links"> Your Awesome Link</a>
+        <a href="links"> Your Awesome Link</a>
     </div>
 
 </div>

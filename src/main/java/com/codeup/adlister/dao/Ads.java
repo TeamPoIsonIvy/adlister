@@ -11,12 +11,17 @@ public interface Ads {
     // insert a new ad and return the new ad's id
     Long insert(Ad ad);
 
-    Ad getAd(Long id);
 
     List<Ad>getBySearchTerm(String searchTerm);
 
     List<Ad> getUserAds(long id) throws SQLException;
 
+
+    void updateAds(Ad ad);
+
+    void deleteAds(long adId);
+
+    Ad findOneAd(long id) throws SQLException;
 
 }
 
