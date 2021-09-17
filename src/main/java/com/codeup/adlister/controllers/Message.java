@@ -1,7 +1,10 @@
-//package com.codeup.adlister.controllers;
-//
-//public class Message {
-//}
+package com.codeup.adlister.controllers;
+
+
+
+public class Message {
+}
+
 //
 //<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 //<html>

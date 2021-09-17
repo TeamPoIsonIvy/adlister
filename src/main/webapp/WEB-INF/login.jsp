@@ -20,6 +20,7 @@
             </div>
             <input type="submit" class="btn btn-primary btn-block" value="Log In">
         </form>
+        <jsp:include page="/WEB-INF/partials/message.jsp"></jsp:include>
     </div>
 </body>
 </html>
