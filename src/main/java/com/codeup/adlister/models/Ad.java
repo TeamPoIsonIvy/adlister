@@ -1,19 +1,37 @@
 package com.codeup.adlister.models;
 
+
+import com.codeup.adlister.Config;
+
 public class Ad {
     private long id;
     private long userId;
     private String title;
     private String description;
+    private Object config;
 
-    public Ad(long id, long userId, String title, String description) {
-        this.id = id;
+    @Override
+    public String toString() {
+        return "Ad{" +
+                "id=" + id +
+                ", userId=" + userId +
+                ", title='" + title + '\'' +
+                ", description='" + description + '\'' +
+                ", config=" + config +
+                '}';
+    }
+
+    public Ad(long userId, String title, String description) {
         this.userId = userId;
         this.title = title;
         this.description = description;
     }
 
-    public Ad(long userId, String title, String description) {
+    public Ad(Config config) {
+    }
+
+    public Ad(long id, long userId, String title, String description) {
+        this.id = id;
         this.userId = userId;
         this.title = title;
         this.description = description;

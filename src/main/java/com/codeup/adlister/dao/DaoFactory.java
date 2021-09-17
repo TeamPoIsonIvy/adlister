@@ -8,6 +8,7 @@ public class DaoFactory {
     private static Users usersDao;
     private static final Config config = new Config();
 
+
     public static Ads getAdsDao() {
         if (adsDao == null) {
             adsDao = new MySQLAdsDao(config);
@@ -21,4 +22,6 @@ public class DaoFactory {
         }
         return usersDao;
     }
+
+
 }
