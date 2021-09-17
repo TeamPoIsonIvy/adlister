@@ -1,3 +1,9 @@
+package com.codeup.adlister.controllers;
+
+public class MessageServlet {
+}
+
+
 //package com.codeup.adlister.controllers;
 //
 //public class Message {
