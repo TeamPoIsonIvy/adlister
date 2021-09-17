@@ -25,7 +25,7 @@ public interface Ads {
 
     Ad findOneAd(long id) throws SQLException;
 
-    int updateUserName(User user);
+
 
 
 

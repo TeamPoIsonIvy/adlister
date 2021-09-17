@@ -1,11 +1,12 @@
 package com.codeup.adlister.dao;
 
+import com.codeup.adlister.Config;
 import com.codeup.adlister.models.Ad;
 
 import com.codeup.adlister.models.User;
 
 
-import com.codeup.adlister.util.Config;
+
 import com.mysql.cj.jdbc.Driver;
 
 import java.sql.*;
@@ -85,19 +86,6 @@ public class MySQLAdsDao implements Ads {
         }
     }
 
-    @Override
-    public void updateAds(Ad ad) {
-        try {
-            String query = "UPDATE ads SET title = ?, description = ? WHERE id = ?";
-            PreparedStatement stmt = connection.prepareStatement(query);
-            stmt.setString(1, ad.getTitle());
-            stmt.setString(2, ad.getDescription());
-            stmt.setLong(3, ad.getId());
-            stmt.executeUpdate();
-        } catch (SQLException e) {
-            throw new RuntimeException("Error updating.", e);
-        }
-    }
 
     @Override
     public void deleteAds(long adId) {
@@ -144,20 +132,21 @@ public class MySQLAdsDao implements Ads {
         return null;
     }
 
-
-public int updateUserName(User user){
-    String query = "UPDATE users SET email = ?, password = ? WHERE id = ?";
-        try{
+    @Override
+    public void updateAds(Ad ad) {
+        try {
+            String query = "UPDATE ads SET title = ?, description = ? WHERE id = ?";
             PreparedStatement stmt = connection.prepareStatement(query);
-            stmt.setString(1,user.getEmail());
-            stmt.setString(2, user.getPassword());
-            stmt.setLong(3, user.getId());
-            return stmt.executeUpdate(query) ;
-        } catch (Exception e) {
-            e.printStackTrace();
+            stmt.setString(1, ad.getTitle());
+            stmt.setString(2, ad.getDescription());
+            stmt.setLong(3, ad.getId());
+            stmt.executeUpdate();
+        } catch (SQLException e) {
+            throw new RuntimeException("Error updating.", e);
         }
-    return 0;
-}
+    }
+
+
 
 
 }
