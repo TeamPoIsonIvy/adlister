@@ -31,6 +31,10 @@ public class LoginServlet extends HttpServlet {
             return;
         }
 
+        if(username.isEmpty() || password.isEmpty()){
+            response.sendRedirect("/login");
+        }
+
         boolean validAttempt = Password.check(password, user.getPassword());
 
         if (validAttempt) {
