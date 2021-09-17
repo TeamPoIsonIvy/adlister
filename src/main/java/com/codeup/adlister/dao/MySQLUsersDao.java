@@ -1,9 +1,16 @@
 package com.codeup.adlister.dao;
 
 
+
 import com.codeup.adlister.models.User;
 
 import com.codeup.adlister.util.Config;
+
+
+import com.codeup.adlister.models.User;
+
+
+
 import com.mysql.cj.jdbc.Driver;
 
 import java.sql.*;
@@ -15,9 +22,9 @@ public class MySQLUsersDao implements Users {
         try {
             DriverManager.registerDriver(new Driver());
             connection = DriverManager.getConnection(
-                config.getUrl(),
-                config.getUser(),
-                config.getPassword()
+                    config.getUrl(),
+                    config.getUser(),
+                    config.getPassword()
             );
         } catch (SQLException e) {
             throw new RuntimeException("Error connecting to the database!", e);
@@ -55,16 +62,17 @@ public class MySQLUsersDao implements Users {
     }
 
     private User extractUser(ResultSet rs) throws SQLException {
-        if (! rs.next()) {
+        if (!rs.next()) {
             return null;
         }
         return new User(
-            rs.getLong("id"),
-            rs.getString("username"),
-            rs.getString("email"),
-            rs.getString("password")
+                rs.getLong("id"),
+                rs.getString("username"),
+                rs.getString("email"),
+                rs.getString("password")
         );
     }
+
     public User findByID(long id) {
         String query = "SELECT * FROM users WHERE id = ? LIMIT 1";
         try {
@@ -76,4 +84,16 @@ public class MySQLUsersDao implements Users {
         }
     }
 
+    public void updateUserInfo(User user) {
+        String query = "UPDATE users SET email = ?, username = ? WHERE id = ?";
+        try {
+            PreparedStatement stmt = connection.prepareStatement(query);
+            stmt.setString(1, user.getEmail());
+            stmt.setString(2, user.getUsername());
+            stmt.setLong(3, user.getId());
+            stmt.executeUpdate();
+        } catch (SQLException e) {
+            throw new RuntimeException("Error updating a user info", e);
+        }
+    }
 }
