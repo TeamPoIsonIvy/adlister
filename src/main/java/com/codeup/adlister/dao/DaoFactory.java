@@ -1,13 +1,12 @@
 package com.codeup.adlister.dao;
 
 
-import com.codeup.adlister.models.Ad;
 import com.codeup.adlister.util.Config;
+
 
 public class DaoFactory {
     private static Ads adsDao;
     private static Users usersDao;
-    private static Ad adDao;
     private static final Config config = new Config();
 
 
