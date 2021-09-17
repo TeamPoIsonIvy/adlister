@@ -1,3 +1,7 @@
+
+
+
+
 package com.codeup.adlister.controllers;
 
 import com.codeup.adlister.dao.DaoFactory;
@@ -24,8 +28,6 @@ public class ViewProfileServlet extends HttpServlet {
         } catch (SQLException e) {
             e.printStackTrace();
         }
-
-//    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
+        request.getRequestDispatcher("/WEB-INF/profile.jsp").forward(request, response);
     }
 }

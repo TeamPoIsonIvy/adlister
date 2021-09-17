@@ -33,7 +33,7 @@
     </c:forEach>
 </div>
 <div>
-    <a href="links"> Your Awesome Link</a>
+    <a href="/links"> Your Awesome Link</a>
 </div>
 
 </div>

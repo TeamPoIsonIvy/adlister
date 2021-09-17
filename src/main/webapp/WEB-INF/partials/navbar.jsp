@@ -4,27 +4,20 @@
         <div class="navbar-header">
             <a class="navbar-brand" href="/ads">Adlister</a>
         </div>
-
-        <ul class="nav navbar-nav navbar-right">
-            <li><form method="GET" action="/search">
-
+        <div class="nav navbar-nav navbar-right">
+            <form method="GET" action="/search">
                 <label for="search">Username</label>
                 <input id="search" name="search" type="text">
-                <br>
-            </form></li>
-            <li><a href="/login">Login</a></li>
-            <li><a href="/logout">Logout</a> </li>
-        </ul>
-
+            </form>
+            <form action="/logout">
+                <input type="submit" value="logout">
+            </form>
+        </div>
 
         <% if (request.getAttribute("username") == null) {
-            response.sendRedirect("profile");}
+            response.sendRedirect("/profile");
+        }
         %>
-
-        <form action = "/logout">
-            <input type="submit" value="logout">
-        </form>
-
 
 
     </div><!-- /.navbar-collapse -->
