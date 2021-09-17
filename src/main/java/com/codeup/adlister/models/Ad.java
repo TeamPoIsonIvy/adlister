@@ -10,6 +10,7 @@ public class Ad {
     private String description;
     private Object config;
 
+
     @Override
     public String toString() {
         return "Ad{" +
@@ -36,6 +37,7 @@ public class Ad {
         this.title = title;
         this.description = description;
     }
+
 
     public long getId() {
         return id;
