@@ -31,6 +31,7 @@ CREATE TABLE Categories (
 
 
 );
+
 CREATE TABLE ads_categories (
                              ads_id INTEGER UNSIGNED NOT NULL,
                              categories_id INTEGER UNSIGNED NOT NULL,
