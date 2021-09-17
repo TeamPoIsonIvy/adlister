@@ -1,15 +1,13 @@
 package com.codeup.adlister.dao;
 
-<<<<<<< HEAD
-=======
 
->>>>>>> navbar
+import com.codeup.adlister.Config;
 import com.codeup.adlister.models.Ad;
 
 import com.codeup.adlister.models.User;
 
 
-import com.codeup.adlister.util.Config;
+
 import com.mysql.cj.jdbc.Driver;
 
 import java.sql.*;
