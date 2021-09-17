@@ -20,6 +20,9 @@ public class Ad {
     public Ad(Config config) {
     }
 
+    public Ad(long id, long user_id, String title, String description) {
+    }
+
 
     public long getId() {
         return id;

@@ -13,10 +13,20 @@
                 <br>
             </form></li>
             <li><a href="/login">Login</a></li>
-            <li><a href="/logout">Logout</a></li>
+            <li><a href="/logout">Logout</a> </li>
         </ul>
+
+
+        <% if (request.getAttribute("username") == null) {
+            response.sendRedirect("profile");}
+        %>
+
+        <form action = "/logout">
+            <input type="submit" value="logout">
+        </form>
+
+
+
     </div><!-- /.navbar-collapse -->
     </div><!-- /.container-fluid -->
 </nav>
-
-

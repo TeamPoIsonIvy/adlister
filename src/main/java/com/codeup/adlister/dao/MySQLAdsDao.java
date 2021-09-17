@@ -15,11 +15,8 @@ import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
-
 public class MySQLAdsDao implements Ads {
     private Connection connection = null;
-    private long id;
-    private Object Ad;
 
     public MySQLAdsDao(Config config) {
         try {
@@ -66,7 +63,6 @@ public class MySQLAdsDao implements Ads {
 
 
 
-
     @Override
     public List<Ad> getBySearchTerm(String searchTerm) {
         PreparedStatement stmt = null;
@@ -83,7 +79,7 @@ public class MySQLAdsDao implements Ads {
     public List<Ad> getUserAds(long id)  {
         try {
             String query = "SELECT * FROM ads WHERE user_id =?";
-           PreparedStatement  stmt = connection.prepareStatement(query);
+            PreparedStatement  stmt = connection.prepareStatement(query);
             stmt.setLong(1, id);
             ResultSet rs = stmt.executeQuery();
             return createAdsFromResults(rs);
@@ -118,6 +114,16 @@ public class MySQLAdsDao implements Ads {
         }
     }
 
+
+    private Ad extractAd(ResultSet rs) throws SQLException {
+        return new Ad(
+                rs.getLong("id"),
+                rs.getLong("user_id"),
+                rs.getString("title"),
+                rs.getString("description")
+        );
+    }
+
     private List<Ad> createAdsFromResults(ResultSet rs) throws SQLException {
         List<Ad> ads = new ArrayList<>();
         while (rs.next()) {
@@ -126,20 +132,20 @@ public class MySQLAdsDao implements Ads {
         return ads;
     }
 
-        public Ad findOneAd ( long id){
-            try {
-                String query = "SELECT * FROM ads WHERE id =?";
-                PreparedStatement stmt = connection.prepareStatement(query);
-                stmt.setLong(1, id);
-                ResultSet rs = stmt.executeQuery();
-                if (rs.next()) {
-                    return extractAd(rs);
-                }
-            } catch (SQLException e) {
-                throw new RuntimeException("Errorrrrrr cant get the users ad");
+    public Ad findOneAd(long id)  {
+        try {
+            String query = "SELECT * FROM ads WHERE id =?";
+            PreparedStatement  stmt = connection.prepareStatement(query);
+            stmt.setLong(1, id);
+            ResultSet rs = stmt.executeQuery();
+            if (rs.next()) {
+                return extractAd(rs);
             }
-            return null;
+        }catch (SQLException e) {
+            throw new RuntimeException("Errorrrrrr cant get the users ad");
         }
+        return null;
+    }
 
 
 
