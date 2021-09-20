@@ -15,6 +15,7 @@
 
 <div class="container">
     <h1>Welcome, ${sessionScope.user.username}!</h1>
+    <a href="/update_user_info">Update Profile</a>
     <c:forEach var="ad" items="${ads}">
         <div class="col-md-6">
             <a href="/update?adId=${ad.id}">update</a>
@@ -25,7 +26,8 @@
     </c:forEach>
 </div>
 
-</div>
+
+
 </body>
 
 </html>

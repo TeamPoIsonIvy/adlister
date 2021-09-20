@@ -15,11 +15,11 @@ import java.sql.SQLException;
 public class AdShowPageServlet extends HttpServlet {
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-long getAdId = Long.parseLong(request.getParameter("id"));
+        long getAdId = Long.parseLong(request.getParameter("id"));
         try {
-        Ad addToShow =  DaoFactory.getAdsDao().findOneAd(getAdId);
-        long userId = addToShow.getUserId();
-        User user = DaoFactory.getUsersDao().findByID(userId);
+            Ad addToShow =  DaoFactory.getAdsDao().findOneAd(getAdId);
+            long userId = addToShow.getUserId();
+            User user = DaoFactory.getUsersDao().findByID(userId);
             request.setAttribute("ad", addToShow);
             request.setAttribute("user", user);
         } catch (SQLException e) {
