@@ -22,7 +22,7 @@ public interface Ads {
 
     void deleteAds(long adId);
 
-    Ad findOneAd(long id) throws SQLException;
+    Ad findOneAd(long id) ;
 
 
 

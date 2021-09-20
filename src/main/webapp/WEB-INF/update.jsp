@@ -9,15 +9,19 @@
 <html>
 <head>
     <title>Update Ad</title>
+<jsp:include page="partials/head.jsp">
+</jsp:include>
+
+
 </head>
 
 <body>
 <form method="POST" action="/update">
     <label for="updateTitle">Title</label>
-    <input id="updateTitle" name="updateTitle" type="text">
+    <input id="updateTitle" name="updateTitle" type="text" value="${ad.title}">
     <br>
     <label for="updateDescription">Description</label>
-    <input id="updateDescription" name="updateDescription" type="text">
+    <input id="updateDescription" name="updateDescription" type="text" value="${ad.description}">
     <br>
     <input type="hidden" value="${adId}" name="adId">
     <input type="submit">
