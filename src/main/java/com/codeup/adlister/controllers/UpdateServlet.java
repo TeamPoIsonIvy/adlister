@@ -13,7 +13,9 @@ import java.io.IOException;
 public class UpdateServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        request.setAttribute("adId", request.getParameter("adId"));
+        long updateID = Long.parseLong(request.getParameter("adId"));
+        request.setAttribute("adId",updateID);
+        request.setAttribute("ad",DaoFactory.getAdsDao().findOneAd(updateID));
         request.getRequestDispatcher("/WEB-INF/update.jsp").forward(request, response);
 
 
