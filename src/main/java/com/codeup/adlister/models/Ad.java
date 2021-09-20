@@ -1,7 +1,7 @@
 package com.codeup.adlister.models;
 
 
-import com.codeup.adlister.util.Config;
+import com.codeup.adlister.Config;
 
 public class Ad {
     private long id;
@@ -10,6 +10,17 @@ public class Ad {
     private String description;
     private Object config;
 
+
+    @Override
+    public String toString() {
+        return "Ad{" +
+                "id=" + id +
+                ", userId=" + userId +
+                ", title='" + title + '\'' +
+                ", description='" + description + '\'' +
+                ", config=" + config +
+                '}';
+    }
 
     public Ad(long userId, String title, String description) {
         this.userId = userId;
@@ -20,7 +31,11 @@ public class Ad {
     public Ad(Config config) {
     }
 
-    public Ad(long id, long user_id, String title, String description) {
+    public Ad(long id, long userId, String title, String description) {
+        this.id = id;
+        this.userId = userId;
+        this.title = title;
+        this.description = description;
     }
 
 

@@ -5,6 +5,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.lang.String;
 
 @WebServlet(name = "controllers.LogoutServlet", urlPatterns = "/logout")
 public class LogoutServlet extends HttpServlet {
@@ -13,4 +14,8 @@ public class LogoutServlet extends HttpServlet {
         request.getSession().invalidate();
         response.sendRedirect("/login");
     }
+
+
+
+
 }

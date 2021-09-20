@@ -25,6 +25,5 @@ public class UpdateUserInfoServlet extends HttpServlet {
         user.setUsername(username);
         DaoFactory.getUsersDao().updateUserInfo(user);
         response.sendRedirect("/profile");
-        }
     }
-
+}
