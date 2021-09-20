@@ -8,6 +8,7 @@
             <form method="GET" action="/search">
                 <label for="search">Username</label>
                 <input id="search" name="search" type="text">
+                <input type="submit">
             </form>
             <form action="/logout">
                 <input type="submit" value="logout">

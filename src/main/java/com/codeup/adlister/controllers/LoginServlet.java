@@ -18,8 +18,10 @@ public class LoginServlet extends HttpServlet {
             response.sendRedirect("/profile");
             return;
         }
+//        request.setAttribute("");
         request.getRequestDispatcher("/WEB-INF/login.jsp").forward(request, response);
     }
+
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
         String username = request.getParameter("username");
@@ -27,7 +29,7 @@ public class LoginServlet extends HttpServlet {
         User user = DaoFactory.getUsersDao().findByUsername(username);
 
         if (user == null) {
-            response.sendRedirect("/login");
+            response.sendRedirect("/login?loginError=loginError");
             return;
         }
 

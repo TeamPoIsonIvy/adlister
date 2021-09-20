@@ -13,16 +13,15 @@
 <body>
 <form action="/update_user_info" method="post">
 
-<label for="username">Username</label>
-<input id="username" name="username"  type="text"  value="${sessionScope.user.username}">
+    <label for="username">Username</label>
+    <input id="username" name="username"  type="text"  value="${sessionScope.user.username}">
 
-<label for="email">Email</label>
-<input id="email" name="email"  type="text"  value="${sessionScope.user.email}">
+    <label for="email">Email</label>
+    <input id="email" name="email"  type="text"  value="${sessionScope.user.email}">
 
 
 
-<input type="submit" name="editButton" >
+    <input type="submit" name="editButton" >
 </form>
-
 </body>
 </html>
