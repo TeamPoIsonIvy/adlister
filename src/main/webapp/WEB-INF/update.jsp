@@ -9,6 +9,10 @@
 <html>
 <head>
     <title>Update Ad</title>
+<jsp:include page="partials/head.jsp">
+</jsp:include>
+
+
 </head>
 
 <body>
