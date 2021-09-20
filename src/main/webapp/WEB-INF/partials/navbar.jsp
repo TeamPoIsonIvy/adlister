@@ -13,6 +13,9 @@
             <form action="/logout">
                 <input type="submit" value="logout">
             </form>
+            <form action="/ads/create">
+                <input type="submit" value="button">
+            </form>
         </div>
 
         <% if (request.getAttribute("username") == null) {

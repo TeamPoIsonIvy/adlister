@@ -4,7 +4,7 @@
 <c:choose>
     <c:when test="${param.loginError !=null}">
         <div class="alert">
-            <strong>Login Error</strong>
+            <strong>Login Error Has Occurred</strong>
         </div>
     </c:when>
 </c:choose>
