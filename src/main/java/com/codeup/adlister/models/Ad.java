@@ -1,7 +1,7 @@
 package com.codeup.adlister.models;
 
 
-import com.codeup.adlister.Config;
+import com.codeup.adlister.util.Config;
 
 public class Ad {
     private long id;
