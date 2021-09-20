@@ -1,5 +1,7 @@
 package com.codeup.adlister.models;
 
+import com.codeup.adlister.util.Config;
+
 public class Ad {
     private long id;
     private long userId;
@@ -25,12 +27,11 @@ public class Ad {
         this.description = description;
     }
 
-<<<<<<< HEAD
-=======
+
     public Ad(Config config) {
     }
 
->>>>>>> main
+
     public Ad(long id, long userId, String title, String description) {
         this.id = id;
         this.userId = userId;
