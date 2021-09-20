@@ -27,4 +27,7 @@ long getAdId = Long.parseLong(request.getParameter("id"));
         }
         request.getRequestDispatcher("/WEB-INF/ads/AdShowPage.jsp").forward(request, response);
     }
+
 }
+
+
