@@ -33,6 +33,11 @@ public class LoginServlet extends HttpServlet {
             return;
         }
 
+        if (password.equals("")) {
+            response.sendRedirect("/login?loginError=loginError");
+            return;
+        }
+
         boolean validAttempt = Password.check(password, user.getPassword());
 
         if (validAttempt) {
@@ -41,5 +46,7 @@ public class LoginServlet extends HttpServlet {
         } else {
             response.sendRedirect("/login");
         }
+
     }
 }
+

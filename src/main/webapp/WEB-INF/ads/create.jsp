@@ -19,6 +19,7 @@
             </div>
             <input type="submit" class="btn btn-block btn-primary">
         </form>
+        <jsp:include page="/WEB-INF/partials/message.jsp"></jsp:include>
     </div>
 </body>
 </html>
